@@ -1,0 +1,108 @@
+body {
+  font-family: "DM Serif Display", serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(49, 49, 49);
+  font-family: "DM Sans", sans-serif;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(138, 73, 0);
+  font-family: "DM Sans", sans-serif;
+}
+
+.logo {
+  text-align: center;
+  margin: 0 5%;
+}
+
+.container-lg {
+  margin: 0 auto;
+}
+
+nav {
+  display: none;
+  background-color: #ffffffb4;
+  position: absolute;
+  top: 100%;
+}
+
+.navbar {
+  padding: 1% 0;
+}
+
+.container-fluid {
+  text-align: center;
+}
+
+.container-fluid {
+  text-align: center;
+}
+
+.container-fluid button {
+  margin: 0 auto;
+}
+
+nav ul {
+  width: 100%;
+}
+
+nav li {
+  padding: 0.5% 3%;
+  font-size: 17px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.index label {
+  width: 300px;
+}
+
+h5 {
+  text-align: center;
+}
+
+.form-material label {
+  width: 200px;
+}
+
+.case {
+  text-align: center;
+}
+
+canvas {
+  display: inline-block;
+}
+
+table,
+canvas {
+  margin: 0 auto;
+}
+
+p {
+  text-align: center;
+}
+
+#inputTime {
+  outline: none;
+}
+
+.form-material,
+.index {
+  margin: 3% auto;
+  width: 50%;
+  border: 2px solid rgb(49, 49, 49); /* Параметры границы */
+  border-radius: 20px;
+  padding: 3% 0; /* Поля вокруг текста */
+}
+
+.icon-nav {
+  width: 24px;
+  height: 24px;
+}

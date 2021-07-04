@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="shortcut icon" href="../img/logo.png" type="image/png" />
+    <link rel="stylesheet" href="./main.css" />
+    <title>3-d Editor</title>
+  </head>
+  <body>
+    <header id="header">
+      <nav class="nav-menu">
+        <div class="container">
+          <ul class="menu">
+            <li>
+              <a class="nav-link" href="../index.php" role="button">
+                <img
+                  class="icon-nav"
+                  src="../img/left-arrow.png"
+                  alt=""
+                  width="15px"
+                  height="15px"
+                />
+                Вернуться назад
+              </a>
+            </li>
+            <li>
+              <a
+                class="nav-link academy-name"
+                href="http://localhost/wordpress-abc/"
+                ><b>Академия ГПС МЧС России</b></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" href="./account/registration.html" role="button"> Аккаунт </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="choose-figures-and-materials">
+        <div class="btn-group tab" role="group" >
+        <a class="btn btn btn-primary btn-sm tablinks" role="button" data-bs-toggle="button" aria-pressed="true" onclick="tabs(event, 'building')" >Строительство</a>
+        <a class="btn btn btn-primary btn-sm tablinks" role="button" data-bs-toggle="button" aria-pressed="true" onclick="tabs(event, 'forniture')" >Мебель</a>
+        <a class="btn btn btn-primary btn-sm tablinks" role="button" data-bs-toggle="button" aria-pressed="true" onclick="tabs(event, 'room')" >Комнаты</a>
+        <a class="btn btn btn-primary btn-sm tablinks" role="button" data-bs-toggle="button" aria-pressed="true" onclick="tabs(event, 'flame')" >Огонь</a>
+        </div>
+      
+          <div class="tabcontent" id="building">
+            <div class="chose-material">
+              <select class="form-select" id="material" aria-label="Default select example">
+                <option value="none" selected>Выберите материал</option>
+                <option value="tree">Дерево</option>
+                <option value="concrete">Бетон</option>
+                <option value="brickRed">Красный кирпич</option>
+              </select>
+            </div>
+            <div class="choose-figures">
+              <div class="card">
+                <img src="../img/wall.svg" class="card-img-top" alt="wall" />
+                <div class="card-body">
+                  <h5 class="card-title">Стена</h5>
+                  <button id="wall" class="btn btn-primary choose">Выбрать</a>
+                </div>
+              </div>
+
+              <div class="card">
+                <img src="../img/window.svg" class="card-img-top" alt="window" />
+                <div class="card-body">
+                  <h5 class="card-title">Окно</h5>
+                  <button id="window" class="btn btn-primary choose">Выбрать</button>
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../img/door.svg" class="card-img-top" alt="door" />
+                <div class="card-body">
+                  <h5 class="card-title">Дверь</h5>
+                  <button id="door" class="btn btn-primary choose">Выбрать</button>
+                </div>
+              </div>
+
+              </div>
+          </div>
+
+          <div class="tabcontent" id="forniture">
+            <div class="choose-figures">
+              <div class="card">
+                <img src="../img/table.svg" class="card-img-top" alt="table" />
+                <div class="card-body">
+                  <h5 class="card-title">Стол</h5>
+                  <button id="table" class="btn btn-primary choose">Выбрать</button>
+                </div>
+              </div>
+    
+              <div class="card">
+                <img src="../img/chair.svg" class="card-img-top" alt="chair" />
+                <div class="card-body">
+                  <h5 class="card-title">Стул</h5>
+                  <button id="chair" class="btn btn-primary choose">Выбрать</button>
+                </div>
+              </div>
+              </div>
+          </div>
+
+          <div class="tabcontent" id="room">
+            <div class="choose-figures">
+              <div class="card">
+                <img src="../img/kitchen.svg" class="card-img-top" alt="kitchen" />
+                <div class="card-body">
+                  <h5 class="card-title">Кухня</h5>
+                  <button id="kitchen" class="btn btn-primary choose">Выбрать</button>
+                </div>
+              </div>
+              </div>
+          </div>
+
+          <div class="tabcontent" id="flame">
+            <div class="choose-figures">
+              <div class="card">
+                <img src="../img/flame.svg" class="card-img-top" alt="fire" />
+                <div class="card-body">
+                  <h5 class="card-title">Огонь</h5>
+                  <button id="fire" class="btn btn-primary choose">Выбрать</button>
+                </div>
+              </div>
+              </div>
+          </div>
+        
+      </div>
+
+      <div id="scene">
+        <canvas id="canvas"></canvas>
+      
+      </div>
+
+      <div class="render-figures" id="render-figures">
+        <div class="panel">
+        <div class="form-check form-switch two-or-three">
+          <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="true" onchange="twoOrThreeD(checked)">
+          <label class="form-check-label" for="flexSwitchCheckChecked" id="text-checkbox">3D</label>
+        </div>
+        <div class="play-fire">
+         <button id="playFire"><img id="buttonPlayorPause" src="../img/play.svg" alt="play" width="20px" height="20px"></button>
+        </div>
+        <div class="about-a-program">
+          <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="../img/more.svg" alt="..." width="20px" height="20px"></button>
+        
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">О программе</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                 <p>При нажатии на следующие кнопоки вы сможете: </p> 
+                 <p>W - переместить предмет</p> 
+                 <p>E - повернуть предмет в нужном направлении</p>
+                 <p>R - увеличение предмет до необходимого размера</p> 
+                 <p>Для того, чтобы начать моделирование пожара, выберите очаг воспламенеия в левом меню и нажмите на кнопку начать.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </main>
+    <script src="../three.js/build/three.js"></script>
+    <script src="../three.js/build/three.min.js"></script>
+    <script src="../three.js/examples/js/controls/OrbitControls.js"></script>
+    <script src="../three.js/examples/js/controls/TransformControls.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <script type='module' src="./index.js"></script>
+    <script src="./tabs-menu.js"></script>
+    <script src="./switches.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

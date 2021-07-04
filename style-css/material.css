@@ -1,0 +1,18 @@
+#button-add-material {
+  width: 20%;
+  height: 2%;
+}
+
+#form-material {
+  margin: 3% auto;
+  width: 90%;
+  border: 2px solid rgb(49, 49, 49); /* Параметры границы */
+  border-radius: 20px;
+  text-align: center;
+  padding: 3% 3%; /* Поля вокруг текста */
+}
+
+.table-material-edit {
+  margin: 3% 2%;
+  text-align: center;
+}
